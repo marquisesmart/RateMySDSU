@@ -1,0 +1,56 @@
+@page
+@model RateMySdsu.Pages.Reviews.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Review[0].Score)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Review[0].Text)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].Class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].Student)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Review) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Score)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FirstMidName)
+            </td>
+            <!--
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ReviewID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ReviewID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ReviewID">Delete</a>
+            </td>
+            -->
+        </tr>
+}
+    </tbody>
+</table>
