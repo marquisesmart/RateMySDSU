@@ -12,6 +12,7 @@ using RateMySdsu.Data;
 
 namespace RateMySdsu.Pages.Account
 {
+    
     public class LoginModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -20,6 +21,7 @@ namespace RateMySdsu.Pages.Account
         public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger)
         {
             _signInManager = signInManager;
+            
             _logger = logger;
         }
 
@@ -64,6 +66,7 @@ namespace RateMySdsu.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+            System.IO.File.WriteAllText(@"C:\Users\marquise\uname.txt", "");
             ReturnUrl = returnUrl;
 
             if (ModelState.IsValid)
@@ -71,11 +74,15 @@ namespace RateMySdsu.Pages.Account
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
+                
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    
+                    System.IO.File.WriteAllText(@"C:\Users\Public\uname.txt", Input.Email);
                     return LocalRedirect(Url.GetLocalUrl(returnUrl));
                 }
+                
                 if (result.RequiresTwoFactor)
                 {
                     return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });

@@ -19,6 +19,7 @@ namespace RateMySdsu.Controllers
         {
             _signInManager = signInManager;
             _logger = logger;
+            
         }
 
         [HttpPost]

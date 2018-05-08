@@ -16,6 +16,7 @@ namespace RateMySdsu.Data
         public DbSet<Class> Classes { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Student> Students { get; set; }
+        public string uname { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
