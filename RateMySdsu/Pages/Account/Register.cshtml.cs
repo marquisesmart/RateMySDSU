@@ -70,7 +70,8 @@ namespace RateMySdsu.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                    System.IO.File.WriteAllText(@"C:\Users\Public\uname.txt", Input.Email);
+                    //FILEIO
+                    //System.IO.File.WriteAllText(@"C:\Users\Public\uname.txt", Input.Email);
 
                     
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

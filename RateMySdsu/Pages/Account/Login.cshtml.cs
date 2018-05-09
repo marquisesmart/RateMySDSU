@@ -66,7 +66,8 @@ namespace RateMySdsu.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            System.IO.File.WriteAllText(@"C:\Users\marquise\uname.txt", "");
+            // FILEIO
+            //System.IO.File.WriteAllText(@"C:\Users\marquise\uname.txt", "");
             ReturnUrl = returnUrl;
 
             if (ModelState.IsValid)
@@ -79,13 +80,15 @@ namespace RateMySdsu.Pages.Account
                 {
                     _logger.LogInformation("User logged in.");
                     
-                    System.IO.File.WriteAllText(@"C:\Users\Public\uname.txt", Input.Email);
+                    // FILEIO
+                    
+                    System.IO.File.WriteAllText("uname.txt", Input.Email);
                     return LocalRedirect(Url.GetLocalUrl(returnUrl));
                 }
                 
                 if (result.RequiresTwoFactor)
                 {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                    //return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
                 }
                 if (result.IsLockedOut)
                 {
