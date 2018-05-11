@@ -1,0 +1,4 @@
+My program is a webpage where students can post reviews of classes.
+ I could not figure out how to implement the administrator functionality, because of that some restreted functionality was left exposed.  
+ Due to that problem,on the Reviews and student page, edit and delete are left exposed .
+ 

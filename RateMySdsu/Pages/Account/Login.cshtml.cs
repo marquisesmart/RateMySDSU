@@ -67,7 +67,7 @@ namespace RateMySdsu.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             // FILEIO
-            //System.IO.File.WriteAllText(@"C:\Users\marquise\uname.txt", "");
+            System.IO.File.WriteAllText(@"uname.txt", "");
             ReturnUrl = returnUrl;
 
             if (ModelState.IsValid)

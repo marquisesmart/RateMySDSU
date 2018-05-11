@@ -19,7 +19,7 @@ namespace RateMySdsu
         public Startup(IConfiguration configuration)
         {
             // FILEIO
-            //System.IO.File.WriteAllText(@"C:\Users\Public\uname.txt", "");
+            System.IO.File.WriteAllText(@"uname.txt", "");
             Configuration = configuration;
         }
 

@@ -71,7 +71,7 @@ namespace RateMySdsu.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
                     //FILEIO
-                    //System.IO.File.WriteAllText(@"C:\Users\Public\uname.txt", Input.Email);
+                    System.IO.File.WriteAllText(@"uname.txt", Input.Email);
 
                     
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
