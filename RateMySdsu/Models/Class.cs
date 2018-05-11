@@ -16,3 +16,4 @@ namespace RateMySdsu.Models
         public ICollection<Review> Reviews { get; set; }
     }
 }
+
